@@ -1,4 +1,4 @@
-package me.dio.santander_dev_week_2024.domain.repository.model;
+package me.dio.santander_dev_week_2024.domain.model;
 
 import jakarta.persistence.*;
 
@@ -14,6 +14,6 @@ public class Card {
     @Column(unique = true)
     private String number;
 
-    @Column(name = "available_limit", scale = 13, precision = 2)
+    @Column(name = "available_limit", precision = 13, scale = 2)
     private BigDecimal limit;
 }
