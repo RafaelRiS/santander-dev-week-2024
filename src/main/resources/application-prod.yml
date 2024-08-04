@@ -1,7 +1,15 @@
 spring:
   datasource:
-    "DATABASE_PUBLIC_URL":"postgresql://${{PGUSER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_TCP_PROXY_DOMAIN}}:${{RAILWAY_TCP_PROXY_PORT}}/${{PGDATABASE}}","DATABASE_URL":"postgresql://${{PGUSER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:5432/${{PGDATABASE}}","PGDATA":"/var/lib/postgresql/data/pgdata","PGDATABASE":"${{POSTGRES_DB}}","PGHOST":"${{RAILWAY_PRIVATE_DOMAIN}}","PGPASSWORD":"${{POSTGRES_PASSWORD}}","PGPORT":"5432","PGUSER":"${{POSTGRES_USER}}","POSTGRES_DB":"railway","POSTGRES_PASSWORD":"UhjvBxQoIPSImQATlBPbhhqKruWSZZfj","POSTGRES_USER":"postgres","SSL_CERT_DAYS":"820"
+    url: jdbc:postgresql://viaduct.proxy.rlwy.net:11073/railway
+    username: ${PGUSER}
+    password: ${POSTGRES_PASSWORD}
   jpa:
+    show-sql: false
     open-in-view: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+

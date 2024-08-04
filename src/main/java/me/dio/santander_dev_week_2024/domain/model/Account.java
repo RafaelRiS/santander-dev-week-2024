@@ -1,5 +1,6 @@
 package me.dio.santander_dev_week_2024.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -58,6 +59,7 @@ public class Account {
         return limit;
     }
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "#,##0.00")
     public void setLimit(BigDecimal limit) {
         this.limit = limit;
     }

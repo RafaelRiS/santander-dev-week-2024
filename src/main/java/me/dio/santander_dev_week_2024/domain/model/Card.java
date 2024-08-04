@@ -1,8 +1,10 @@
 package me.dio.santander_dev_week_2024.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Entity(name = "tb_card")
 public class Card {
@@ -15,6 +17,7 @@ public class Card {
     private String number;
 
     @Column(name = "available_limit", precision = 13, scale = 2)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "#,##0.00")
     private BigDecimal limit;
 
     public Long getId() {
@@ -35,9 +38,5 @@ public class Card {
 
     public BigDecimal getLimit() {
         return limit;
-    }
-
-    public void setLimit(BigDecimal limit) {
-        this.limit = limit;
     }
 }
