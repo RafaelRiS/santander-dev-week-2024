@@ -7,7 +7,7 @@ spring:
     show-sql: false
     open-in-view: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: delete
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
