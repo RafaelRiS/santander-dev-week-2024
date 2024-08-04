@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://viaduct.proxy.rlwy.net:11073/railway
+    url: jdbc:postgresql://${DATABASE_PUBLIC_URL}
     username: ${PGUSER}
     password: ${POSTGRES_PASSWORD}
   jpa:
     show-sql: false
     open-in-view: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
